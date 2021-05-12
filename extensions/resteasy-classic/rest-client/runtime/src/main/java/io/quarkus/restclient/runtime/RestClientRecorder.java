@@ -25,21 +25,6 @@ public class RestClientRecorder {
 
     public static ResteasyProviderFactory providerFactory;
 
-    public BeanContainerListener hackAroundExtension() {
-        return new BeanContainerListener() {
-            @Override
-            public void created(BeanContainer container) {
-                try {
-                    Field f = RestClientExtension.class.getDeclaredField("manager");
-                    f.setAccessible(true);
-                    f.set(null, CDI.current().getBeanManager());
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        };
-    }
-
     public void setRestClientBuilderResolver() {
         RestClientBuilderResolver.setInstance(new BuilderResolver());
     }
