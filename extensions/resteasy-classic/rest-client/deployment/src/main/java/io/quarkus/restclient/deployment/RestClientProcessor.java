@@ -44,12 +44,10 @@ import org.jboss.resteasy.core.providerfactory.ResteasyProviderFactoryImpl;
 import org.jboss.resteasy.microprofile.client.DefaultResponseExceptionMapper;
 import org.jboss.resteasy.microprofile.client.RestClientProxy;
 import org.jboss.resteasy.microprofile.client.async.AsyncInterceptorRxInvokerProvider;
-import org.jboss.resteasy.spi.ResteasyConfiguration;
 
 import io.quarkus.arc.BeanDestroyer;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
 import io.quarkus.arc.deployment.BeanArchiveIndexBuildItem;
-import io.quarkus.arc.deployment.BeanContainerListenerBuildItem;
 import io.quarkus.arc.deployment.SyntheticBeanBuildItem;
 import io.quarkus.arc.deployment.SyntheticBeanBuildItem.ExtendedBeanConfigurator;
 import io.quarkus.arc.processor.BuiltinScope;
@@ -113,10 +111,10 @@ class RestClientProcessor {
         resources.produce(new NativeImageResourceBuildItem("META-INF/services/javax.ws.rs.client.ClientBuilder"));
     }
 
-//    @BuildStep
-//    NativeImageProxyDefinitionBuildItem addProxy() {
-//        return new NativeImageProxyDefinitionBuildItem(ResteasyConfiguration.class.getName());
-//    }
+    //    @BuildStep
+    //    NativeImageProxyDefinitionBuildItem addProxy() {
+    //        return new NativeImageProxyDefinitionBuildItem(ResteasyConfiguration.class.getName());
+    //    }
 
     @BuildStep
     void registerRestClientListenerForTracing(
