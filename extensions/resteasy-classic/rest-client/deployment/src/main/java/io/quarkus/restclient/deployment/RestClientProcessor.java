@@ -113,12 +113,6 @@ class RestClientProcessor {
         resources.produce(new NativeImageResourceBuildItem("META-INF/services/javax.ws.rs.client.ClientBuilder"));
     }
 
-    @Record(ExecutionTime.STATIC_INIT)
-    @BuildStep
-    BeanContainerListenerBuildItem fixExtension(RestClientRecorder restClientRecorder) {
-        return new BeanContainerListenerBuildItem(restClientRecorder.hackAroundExtension());
-    }
-
     @BuildStep
     NativeImageProxyDefinitionBuildItem addProxy() {
         return new NativeImageProxyDefinitionBuildItem(ResteasyConfiguration.class.getName());
