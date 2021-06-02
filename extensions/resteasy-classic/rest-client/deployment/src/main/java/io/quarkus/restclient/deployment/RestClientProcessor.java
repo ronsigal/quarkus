@@ -49,7 +49,6 @@ import org.jboss.resteasy.spi.ResteasyConfiguration;
 import io.quarkus.arc.BeanDestroyer;
 import io.quarkus.arc.deployment.AdditionalBeanBuildItem;
 import io.quarkus.arc.deployment.BeanArchiveIndexBuildItem;
-import io.quarkus.arc.deployment.BeanContainerListenerBuildItem;
 import io.quarkus.arc.deployment.SyntheticBeanBuildItem;
 import io.quarkus.arc.deployment.SyntheticBeanBuildItem.ExtendedBeanConfigurator;
 import io.quarkus.arc.processor.BuiltinScope;
