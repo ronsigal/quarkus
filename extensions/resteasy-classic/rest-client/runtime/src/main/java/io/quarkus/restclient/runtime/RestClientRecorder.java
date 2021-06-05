@@ -1,16 +1,13 @@
 package io.quarkus.restclient.runtime;
 
-import java.lang.reflect.Field;
 import java.util.Set;
 
-import javax.enterprise.inject.spi.CDI;
 import javax.ws.rs.RuntimeType;
 
 import org.eclipse.microprofile.rest.client.spi.RestClientBuilderResolver;
 import org.jboss.resteasy.client.jaxrs.internal.ResteasyClientBuilderImpl;
 import org.jboss.resteasy.core.providerfactory.ResteasyProviderFactoryImpl;
 import org.jboss.resteasy.microprofile.client.RestClientBuilderImpl;
-import org.jboss.resteasy.microprofile.client.RestClientExtension;
 import org.jboss.resteasy.plugins.providers.RegisterBuiltin;
 import org.jboss.resteasy.spi.InjectorFactory;
 import org.jboss.resteasy.spi.ResteasyProviderFactory;
@@ -29,13 +26,6 @@ public class RestClientRecorder {
         return new BeanContainerListener() {
             @Override
             public void created(BeanContainer container) {
-                try {
-                    Field f = RestClientExtension.class.getDeclaredField("manager");
-                    f.setAccessible(true);
-                    f.set(null, CDI.current().getBeanManager());
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
             }
         };
     }
