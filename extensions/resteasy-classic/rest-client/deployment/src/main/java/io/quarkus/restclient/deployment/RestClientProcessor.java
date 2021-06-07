@@ -111,10 +111,10 @@ class RestClientProcessor {
         resources.produce(new NativeImageResourceBuildItem("META-INF/services/javax.ws.rs.client.ClientBuilder"));
     }
 
-    //    @BuildStep
-    //    NativeImageProxyDefinitionBuildItem addProxy() {
-    //        return new NativeImageProxyDefinitionBuildItem(ResteasyConfiguration.class.getName());
-    //    }
+    @BuildStep
+    NativeImageProxyDefinitionBuildItem addProxy() {
+        return new NativeImageProxyDefinitionBuildItem(ResteasyConfiguration.class.getName());
+    }
 
     @BuildStep
     void registerRestClientListenerForTracing(
