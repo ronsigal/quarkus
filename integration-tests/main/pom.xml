@@ -570,6 +570,7 @@
             <!-- add some custom config, the rest comes from parent -->
             <properties>
                 <quarkus.native.add-all-charsets>true</quarkus.native.add-all-charsets>
+		<quarkus.native.additional-build-args>-J-D--allow-incomplete-classpath</quarkus.native.additional-build-args>
             </properties>
         </profile>
 
