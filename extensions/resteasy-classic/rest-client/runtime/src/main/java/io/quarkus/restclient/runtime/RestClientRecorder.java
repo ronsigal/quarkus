@@ -10,13 +10,10 @@ import org.eclipse.microprofile.rest.client.spi.RestClientBuilderResolver;
 import org.jboss.resteasy.client.jaxrs.internal.ResteasyClientBuilderImpl;
 import org.jboss.resteasy.core.providerfactory.ResteasyProviderFactoryImpl;
 import org.jboss.resteasy.microprofile.client.RestClientBuilderImpl;
-import org.jboss.resteasy.microprofile.client.RestClientExtension;
 import org.jboss.resteasy.plugins.providers.RegisterBuiltin;
 import org.jboss.resteasy.spi.InjectorFactory;
 import org.jboss.resteasy.spi.ResteasyProviderFactory;
 
-import io.quarkus.arc.runtime.BeanContainer;
-import io.quarkus.arc.runtime.BeanContainerListener;
 import io.quarkus.runtime.RuntimeValue;
 import io.quarkus.runtime.annotations.Recorder;
 
@@ -24,21 +21,6 @@ import io.quarkus.runtime.annotations.Recorder;
 public class RestClientRecorder {
 
     public static ResteasyProviderFactory providerFactory;
-
-    public BeanContainerListener hackAroundExtension() {
-        return new BeanContainerListener() {
-            @Override
-            public void created(BeanContainer container) {
-                try {
-                    Field f = RestClientExtension.class.getDeclaredField("manager");
-                    f.setAccessible(true);
-                    f.set(null, CDI.current().getBeanManager());
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        };
-    }
 
     public void setRestClientBuilderResolver() {
         RestClientBuilderResolver.setInstance(new BuilderResolver());
