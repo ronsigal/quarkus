@@ -1,9 +1,7 @@
 package io.quarkus.restclient.runtime;
 
-import java.lang.reflect.Field;
 import java.util.Set;
 
-import javax.enterprise.inject.spi.CDI;
 import javax.ws.rs.RuntimeType;
 
 import org.eclipse.microprofile.rest.client.spi.RestClientBuilderResolver;
