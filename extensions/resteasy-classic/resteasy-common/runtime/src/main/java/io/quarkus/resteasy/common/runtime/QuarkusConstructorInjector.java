@@ -27,6 +27,9 @@ public class QuarkusConstructorInjector implements ConstructorInjector {
         this.delegate = delegate;
     }
 
+    public QuarkusConstructorInjector(Constructor<?> ctor, ConstructorInjector delegate) {
+    }
+
     @Override
     public Object construct(boolean unwrapAsync) {
         if (factory != null) {
