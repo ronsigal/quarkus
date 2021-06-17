@@ -28,6 +28,8 @@ public class QuarkusConstructorInjector implements ConstructorInjector {
     }
 
     public QuarkusConstructorInjector(String s) {
+        this.ctor = null;
+        this.delegate = null;
     }
 
     @Override
