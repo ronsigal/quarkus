@@ -11,7 +11,7 @@
 
     <groupId>io.quarkus</groupId>
     <artifactId>quarkus-parent</artifactId>
-    <name>Quarkus - Parent pom</name>
+    <name>Quarkus - Parent pom (test)</name>
     <version>999-SNAPSHOT</version>
     <packaging>pom</packaging>
 
