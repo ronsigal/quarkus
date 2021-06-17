@@ -27,9 +27,9 @@ public class QuarkusConstructorInjector implements ConstructorInjector {
         this.delegate = delegate;
     }
 
-    public QuarkusConstructorInjector(String s) {
-        this.ctor = null;
-        this.delegate = null;
+    public QuarkusConstructorInjector(Constructor<?> ctor, ConstructorInjector delegate, String s) {
+        this.ctor = ctor;
+        this.delegate = delegate;
     }
 
     @Override
