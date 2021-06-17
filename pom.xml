@@ -111,6 +111,20 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+        <repository>
+          <id>jboss-public-repository</id>
+          <name>JBoss Public Repository Group</name>
+          <url>https://repository.jboss.org/nexus</url>
+          <layout>default</layout>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </snapshots>
+        </repository>
     </repositories>
 
     <distributionManagement>
