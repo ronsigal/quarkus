@@ -37,7 +37,7 @@
         <module>security</module>
         <module>security-jwt</module>
         <module>security-oidc</module>
-        <module>oidc-server</module>
+        <!--module>oidc-server</module-->
         <module>keycloak-server</module>
         <module>jacoco</module>
         <module>mongodb</module>
