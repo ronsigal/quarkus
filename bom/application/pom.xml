@@ -18,7 +18,7 @@
         <bouncycastle.fips.version>1.0.2.1</bouncycastle.fips.version>
         <bouncycastle.tls.fips.version>1.0.12.1</bouncycastle.tls.fips.version>
         <jandex.version>2.3.0.Final</jandex.version>
-        <resteasy.version>4.6.1.Final</resteasy.version>
+        <resteasy.version>4.7.0.Beta4</resteasy.version>
         <opentracing.version>0.33.0</opentracing.version>
         <opentracing-jaxrs.version>1.0.0</opentracing-jaxrs.version>
         <opentracing-web-servlet-filter.version>0.4.0</opentracing-web-servlet-filter.version>
@@ -254,16 +254,6 @@
                 <type>pom</type>
             </dependency>
 
-            <!-- RESTEasy dependencies, imported as a BOM -->
-            <!-- As RESTEasy also imports Jackson, we need to import its BOM after the Jackson BOM -->
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-bom</artifactId>
-                <version>${resteasy.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
             <!-- JUnit 5 dependencies, imported as a BOM -->
             <dependency>
                 <groupId>org.junit</groupId>
@@ -289,6 +279,17 @@
                 <version>${vertx.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
+            </dependency>
+
+            <!-- RESTEasy dependencies, imported as a BOM -->
+            <!-- As RESTEasy also imports Jackson, we need to import its BOM after the Jackson BOM -->
+            <!-- As RESTEasy also imports Vert.x transitively, we need to import its BOM after the Vert.x BOM -->
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-bom</artifactId>
+                <version>${resteasy.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
             <!-- gRPC dependencies, imported as a BOM -->
@@ -3982,6 +3983,18 @@
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-json-binding-provider</artifactId>
+                <version>${resteasy.version}</version>
+                <!-- In jakarta.json 1.1.6, the API is included in the impl jar -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>jakarta.json</groupId>
+                        <artifactId>jakarta.json-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-json-p-provider</artifactId>
                 <version>${resteasy.version}</version>
                 <!-- In jakarta.json 1.1.6, the API is included in the impl jar -->
                 <exclusions>
