@@ -112,9 +112,9 @@
                 <enabled>true</enabled>
                 <updatePolicy>never</updatePolicy>
             </snapshots>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Repository Group</name>
-            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+            <id>jboss-public-staging</id>
+            <name>JBoss Staging</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/jboss_releases_staging_profile-18165</url>
             <layout>default</layout>
         </repository>
         <repository>
