@@ -315,7 +315,7 @@ public class CliDriver {
     }
 
     public static Result invokeValidateBuild(Path projectRoot) throws Exception {
-        Result result = execute(projectRoot, "build", "-e", "-B", "--clean",
+        Result result = execute(projectRoot, "build", "-e", "-B", "--clean", "--verbose",
                 "-Dproperty=value1", "-Dproperty2=value2");
         Assertions.assertEquals(CommandLine.ExitCode.OK, result.exitCode,
                 "Expected OK return code. Result:\n" + result);
